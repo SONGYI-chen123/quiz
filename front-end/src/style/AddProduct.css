@@ -1,0 +1,24 @@
+
+#myh1{
+    margin-left: 30px;
+}
+#mylabel{
+    margin: 30px;
+    display: block;
+    font-size: 20px;
+}
+
+#myinput{
+    width: 500px;
+    height: 20px;
+}
+
+#mysubmit{
+    display: block;
+    width: 80px;
+    height: 30px;
+    margin-left: 30px;
+    font-weight: bolder;
+    background-color: blue;
+    color: white;
+}

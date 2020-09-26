@@ -1,0 +1,25 @@
+.store{
+    text-align: center;
+}
+
+
+.store ul{
+    height: 80px;
+    border: 2px solid #dddddd;
+}
+.store ul li{
+    display: inline;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    width: 60px;
+    height:80px;
+}
+
+#myp{
+    font-size: 20px;
+}
+
+#mybtn{
+    float: right;
+    border-radius: 50%;
+}
