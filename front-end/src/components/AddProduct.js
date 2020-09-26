@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../style/AddProduct.css';
+import {MyFetch} from './MyFetch';
 
 class AddProduct extends Component{
     state={
@@ -14,6 +15,19 @@ class AddProduct extends Component{
             [event.target.name]: event.target.value
         })
     }
+
+        handleSubmit= (event)=>{
+            let myfetch =MyFetch('/addProduct','POST',JSON.stringify(event.target.value));
+             return(myfetch)
+            .then((res)=>{return res.json();})
+            .then((res)=>{
+              const accounts ={
+            isFetching:false,
+            result:res
+        }
+        return accounts
+    })
+        }
 
     render(){
         return(
