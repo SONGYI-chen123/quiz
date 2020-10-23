@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../style/AddProduct.css';
-import {MyFetch} from './MyFetch';
+
 
 class AddProduct extends Component{
     state={
@@ -16,17 +16,18 @@ class AddProduct extends Component{
         })
     }
 
-        handleSubmit= (event)=>{
-            let myfetch =MyFetch('/addProduct','POST',JSON.stringify(event.target.value));
-             return(myfetch)
-            .then((res)=>{return res.json();})
-            .then((res)=>{
-              const accounts ={
-            isFetching:false,
-            result:res
-        }
-        return accounts
-    })
+        handleSubmit= ()=>{
+            const url = "http://localhost:8080/addProduct";
+            fetch(url, {
+                method : 'POST',
+                mode : 'cors',
+                body : {
+                    name:this.state.name,
+                    price:this.state.price,
+                    unit:this.state.unit,
+                    image:this.state.image
+                }
+            })
         }
 
     render(){

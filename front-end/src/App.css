@@ -1,25 +1,29 @@
 .App{
-  margin-left: 350px;
-  width: 600px;
-  height: 650px;
-  border: 5px solid #dddddd;
+  border: 10px solid #dddddd;
+  width: 800px;
+  height:700px;
 }
+
 .App ul{
-  background-color: #0c0733;
-  height: 30px;
-  margin:0;
+  height: 80px;
+  background-color: rgb(8, 8, 73);
+  margin: 0px;
 }
 
 .App ul li{
-  float: left;
   display: inline;
-  margin: 25px;
+  float: left;
+  padding: 20px;
+  color:white;
 }
+
 .App ul li a{
-  color: white;
-  text-decoration: none;
   font-size: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
 }
- .App ul li a:hover{
-   background-color: rgb(39, 129, 247);
- }
+
+.App ul li a:hover{
+  background-color: rgb(57, 130, 238);
+}
