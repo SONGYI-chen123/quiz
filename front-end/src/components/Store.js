@@ -5,7 +5,14 @@ class Store extends Component{
     constructor(props){
         super(props);
         this.state={
-            products:[]
+            products:[
+                {
+                    name: '',
+                    price:'',
+                    unit:'',
+                    image:''
+                }
+            ]
         }
     }
 
@@ -23,11 +30,25 @@ class Store extends Component{
       })
     }
 
+    showDetail = (data) =>{
+        const detail = [];
+        data.forEach((element,index) =>{
+            detail.push(
+                <div>
+                    <img src={data[index].image} alt="load..." />
+                    <p>{data[index].price}/{data[index].unit}</p>
+                    <p>{data[index].name}</p>
+                </div>
+            )
+        })
+    }
 
     render(){
         return(
             <div>
-                <h1>product</h1>
+                <div>
+                    {this.showDetail(this.state.products)}
+                </div>
             </div>
         );
     }
