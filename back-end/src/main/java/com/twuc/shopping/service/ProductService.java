@@ -4,7 +4,7 @@ import com.twuc.shopping.Po.ProductPo;
 import com.twuc.shopping.Po.shoppingCartPo;
 import com.twuc.shopping.domain.Product;
 import com.twuc.shopping.domain.ShoppingCartReponse;
-import com.twuc.shopping.domain.shoppingCart;
+import com.twuc.shopping.domain.shoppingCartRequest;
 import com.twuc.shopping.repository.ProductRepository;
 import com.twuc.shopping.repository.shoppingCartRepository;
 
@@ -42,19 +42,19 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-    public void addProductToShoppingCart(shoppingCart shoppingCart) {
+    public void addProductToShoppingCart(shoppingCartRequest shoppingCartRequest) {
         List<shoppingCartPo> shoppingCartPos = shoppingCartRepository.findAll();
         for(int i = 0;i<shoppingCartPos.size();i++){
-            if(shoppingCartPos.get(i).getName().equals(shoppingCart.getName())){
+            if(shoppingCartPos.get(i).getName().equals(shoppingCartRequest.getName())){
                 int num = shoppingCartPos.get(i).getNum() + 1;
-                shoppingCartPo shoppingCartPo = shoppingCartRepository.findByname(shoppingCart.getName());
+                shoppingCartPo shoppingCartPo = shoppingCartRepository.findByname(shoppingCartRequest.getName());
                 shoppingCartPo.setNum(num);
                 shoppingCartRepository.save(shoppingCartPo);
             }
         }
         shoppingCartPo shoppingCartPo = new shoppingCartPo();
-        shoppingCartPo.setName(shoppingCart.getName());
-        shoppingCartPo.setPrice(shoppingCart.getPrice());
+        shoppingCartPo.setName(shoppingCartRequest.getName());
+        shoppingCartPo.setPrice(shoppingCartRequest.getPrice());
         shoppingCartPo.setNum(0);
         shoppingCartRepository.save(shoppingCartPo);
     }

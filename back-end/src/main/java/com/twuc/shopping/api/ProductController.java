@@ -1,16 +1,11 @@
 package com.twuc.shopping.api;
 
-import com.twuc.shopping.Po.OrderFormPo;
-import com.twuc.shopping.Po.ProductPo;
-import com.twuc.shopping.domain.OrderForm;
 import com.twuc.shopping.domain.Product;
 import com.twuc.shopping.domain.ShoppingCartReponse;
-import com.twuc.shopping.domain.shoppingCart;
-import com.twuc.shopping.repository.ProductRepository;
+import com.twuc.shopping.domain.shoppingCartRequest;
 import com.twuc.shopping.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -36,8 +31,8 @@ public class ProductController {
     }
 
     @PostMapping("/addShopping")
-    public void addProductToShoppingCart(@RequestBody shoppingCart shoppingCart){
-        productService.addProductToShoppingCart(shoppingCart);
+    public void addProductToShoppingCart(@RequestBody shoppingCartRequest shoppingCartRequest){
+        productService.addProductToShoppingCart(shoppingCartRequest);
     }
 
     @GetMapping("/shopping")

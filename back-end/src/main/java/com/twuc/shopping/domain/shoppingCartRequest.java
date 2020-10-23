@@ -11,7 +11,8 @@ import java.nio.file.FileStore;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class shoppingCart {
+public class shoppingCartRequest {
     private String name;
     private String price;
+    private Integer num;
 }

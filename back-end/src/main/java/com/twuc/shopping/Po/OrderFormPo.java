@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import java.util.List;
+
 import static javax.persistence.CascadeType.*;
 
 @Entity
@@ -19,8 +21,7 @@ public class OrderFormPo {
     @Id
     @GeneratedValue
     private Integer id;
-    private  Integer num;
-    @OneToMany
-    private shoppingCartPo shoppingCartPo;
+    @OneToMany(cascade = CascadeType.REMOVE , mappedBy = "orderform")
+    private List<shoppingCartPo> shoppingCartPos;
 
 }
