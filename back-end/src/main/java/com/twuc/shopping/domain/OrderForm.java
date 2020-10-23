@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class OrderForm {
     @NotNull
-    private double price;
+    private String price;
     @NotNull
     @Min(1)
     private  int num;
@@ -41,15 +41,15 @@ public class OrderForm {
         this.num = num;
     }
 
-    public double getPrice() {
+    public String  getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public OrderForm( @NotNull String name,@NotNull double price, @NotNull @Min(1) int num, @NotNull String unit) {
+    public OrderForm( @NotNull String name,@NotNull String price, @NotNull @Min(1) int num, @NotNull String unit) {
         this.price = price;
         this.num = num;
         this.unit = unit;

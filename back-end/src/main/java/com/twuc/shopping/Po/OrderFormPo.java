@@ -20,7 +20,7 @@ public class OrderFormPo {
     @GeneratedValue
     private Integer id;
     private  Integer num;
-    @OneToOne(cascade = REMOVE, mappedBy = "order")
-    private ProductPo product;
+    @OneToMany
+    private shoppingCartPo shoppingCartPo;
 
 }

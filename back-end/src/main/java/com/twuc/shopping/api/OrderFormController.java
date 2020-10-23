@@ -2,6 +2,8 @@ package com.twuc.shopping.api;
 
 import com.twuc.shopping.domain.OrderForm;
 import com.twuc.shopping.repository.OrderFormRepository;
+import com.twuc.shopping.service.OrderService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.*;
 import com.twuc.shopping.Po.OrderFormPo;
 import com.twuc.shopping.repository.OrderFormRepository;
 
+@CrossOrigin
+@Slf4j
 @RestController
 public class OrderFormController {
     @Autowired
-    OrderFormRepository orderFormRepository;
+    OrderService orderService;
 
-
+    @PostMapping("/addOrder")
+    public void addOrder(@RequestBody OrderForm orderForm){
+        orderService.addOrder(orderForm);
+    }
 }

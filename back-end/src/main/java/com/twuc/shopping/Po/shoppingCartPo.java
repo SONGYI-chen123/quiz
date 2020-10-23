@@ -22,4 +22,7 @@ public class shoppingCartPo {
     private String name;
     private String price;
     private Integer num;
+
+    @ManyToOne
+    private OrderFormPo orderFormPo;
 }

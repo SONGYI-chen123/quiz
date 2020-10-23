@@ -14,5 +14,4 @@ import java.nio.file.FileStore;
 public class shoppingCart {
     private String name;
     private String price;
-
 }

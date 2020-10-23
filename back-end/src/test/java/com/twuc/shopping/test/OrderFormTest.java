@@ -24,7 +24,7 @@ public class OrderFormTest {
 
     @Test
     public void should_add_orderForm() throws Exception{
-        OrderForm orderForm = new OrderForm("西瓜",20.00,2,"个");
+        OrderForm orderForm = new OrderForm("西瓜","20",2,"个");
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(orderForm);
         mockMvc.perform(post("/add").content(jsonString).contentType(MediaType.APPLICATION_JSON))

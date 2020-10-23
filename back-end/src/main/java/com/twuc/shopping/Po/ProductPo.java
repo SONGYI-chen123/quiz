@@ -23,6 +23,5 @@ public class ProductPo {
     private String unit;
     private String imageUrl;
 
-    @OneToOne
-    private OrderFormPo orderFormPo;
+
 }

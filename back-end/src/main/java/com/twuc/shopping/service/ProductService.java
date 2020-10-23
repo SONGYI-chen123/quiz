@@ -3,6 +3,7 @@ package com.twuc.shopping.service;
 import com.twuc.shopping.Po.ProductPo;
 import com.twuc.shopping.Po.shoppingCartPo;
 import com.twuc.shopping.domain.Product;
+import com.twuc.shopping.domain.ShoppingCartReponse;
 import com.twuc.shopping.domain.shoppingCart;
 import com.twuc.shopping.repository.ProductRepository;
 import com.twuc.shopping.repository.shoppingCartRepository;
@@ -56,5 +57,17 @@ public class ProductService {
         shoppingCartPo.setPrice(shoppingCart.getPrice());
         shoppingCartPo.setNum(0);
         shoppingCartRepository.save(shoppingCartPo);
+    }
+
+    public List<ShoppingCartReponse> showShoppingCart() {
+        return shoppingCartRepository.findAll().stream()
+                .map(
+                        item -> {
+                            ShoppingCartReponse shoppingCartReponse = new ShoppingCartReponse();
+                            shoppingCartReponse.setName(item.getName());
+                            shoppingCartReponse.setNum(item.getNum());
+                            return shoppingCartReponse;
+                        })
+                .collect(Collectors.toList());
     }
 }
