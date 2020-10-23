@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../style/Store.css';
+import {imgPath} from '../img/shopping.jpg';
 
 class Store extends Component{
     constructor(props){
@@ -30,6 +31,18 @@ class Store extends Component{
       })
     }
 
+    AddToShoppingCart = () =>{
+        const url = "http://localhost:8080/addShopping";
+            fetch(url, {
+                method : 'POST',
+                mode : 'cors',
+                body : {
+                    name:this.state.name,
+                    price:this.state.price,
+                }
+            })
+    }
+
     showDetail = (data) =>{
         const detail = [];
         data.forEach((element,index) =>{
@@ -38,6 +51,7 @@ class Store extends Component{
                     <img src={data[index].image} alt="load..." />
                     <p>{data[index].price}/{data[index].unit}</p>
                     <p>{data[index].name}</p>
+                    <button onClick={this.AddToShoppingCart()}>+</button>
                 </div>
             )
         })
@@ -49,6 +63,7 @@ class Store extends Component{
                 <div>
                     {this.showDetail(this.state.products)}
                 </div>
+                <img src={imgPath} alt="loading..." id="shopping" />
             </div>
         );
     }
