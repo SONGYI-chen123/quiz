@@ -1,8 +1,10 @@
 package com.twuc.shopping.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.twuc.shopping.Po.shoppingCartPo;
 import com.twuc.shopping.domain.OrderForm;
 import com.twuc.shopping.domain.Product;
+import com.twuc.shopping.domain.shoppingCart;
 import com.twuc.shopping.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -36,6 +38,15 @@ public class ProductControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(product);
         mockMvc.perform(post("/addProduct").content(jsonString).contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void should_add_product_to_shopping_cart() throws Exception{
+        shoppingCart shoppingcart = shoppingCart.builder().name("橘子").price("13.2").build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonString = objectMapper.writeValueAsString(shoppingcart);
+        mockMvc.perform(post("/addShopping").content(jsonString).contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 }
