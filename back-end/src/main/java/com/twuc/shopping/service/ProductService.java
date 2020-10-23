@@ -6,6 +6,7 @@ import com.twuc.shopping.repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductService {
     private final ProductRepository productRepository;
@@ -22,4 +23,17 @@ public class ProductService {
         productRepository.save(productPo);
     }
 
+    public List<Product> showProduct() {
+        return productRepository.findAll().stream()
+                .map(
+                        item -> {
+                            Product product = new Product();
+                            product.setName(item.getName());
+                            product.setPrice(item.getPrice());
+                            product.setUnit(item.getUnit());
+                            product.setImageUrl(item.getImageUrl());
+                            return product;
+                        })
+                .collect(Collectors.toList());
+    }
 }

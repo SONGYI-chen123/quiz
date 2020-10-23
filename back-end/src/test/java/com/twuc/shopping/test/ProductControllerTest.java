@@ -32,7 +32,7 @@ public class ProductControllerTest {
     ProductRepository productRepository;
     @Test
     public void should_add_product() throws Exception{
-        Product product = new Product("西瓜",20.00,"个","../img/7.jpg");
+        Product product = new Product("西瓜","20","个","../img/7.jpg");
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(product);
         mockMvc.perform(post("/addProduct").content(jsonString).contentType(MediaType.APPLICATION_JSON))

@@ -16,7 +16,5 @@ public class OrderFormController {
     @Autowired
     OrderFormRepository orderFormRepository;
 
-    @PostMapping("/add")
-    public ResponseEntity addOrderForm(@RequestBody OrderForm orderForm){
-    }
+
 }

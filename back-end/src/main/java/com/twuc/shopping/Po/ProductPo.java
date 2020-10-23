@@ -19,7 +19,7 @@ public class ProductPo {
     @GeneratedValue
     private Integer id;
     private String name;
-    private double price;
+    private String price;
     private String unit;
     private String imageUrl;
 

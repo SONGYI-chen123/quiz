@@ -30,5 +30,6 @@ public class ProductController {
     public List<Product> showProduct(){
         List<Product> products= new ArrayList<Product>();
         products = productService.showProduct();
+        return products;
     }
 }
