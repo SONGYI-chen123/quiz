@@ -9,8 +9,6 @@ import javax.persistence.*;
 
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
-
 @Entity
 @Table(name="orderform")
 @Builder
@@ -21,7 +19,7 @@ public class OrderFormPo {
     @Id
     @GeneratedValue
     private Integer id;
-    @OneToMany(cascade = CascadeType.REMOVE , mappedBy = "orderform")
-    private List<shoppingCartPo> shoppingCartPos;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderFormPo")
+    private List<ShoppingCartPo> ShoppingCartPos;
 
 }

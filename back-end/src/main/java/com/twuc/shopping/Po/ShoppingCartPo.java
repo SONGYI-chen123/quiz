@@ -15,7 +15,7 @@ import static javax.persistence.CascadeType.REMOVE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class shoppingCartPo {
+public class ShoppingCartPo {
     @Id
     @GeneratedValue
     private Integer id;
