@@ -5,24 +5,30 @@ import com.twuc.shopping.Po.ProductPo;
 import com.twuc.shopping.domain.OrderForm;
 import com.twuc.shopping.domain.Product;
 import com.twuc.shopping.repository.ProductRepository;
+import com.twuc.shopping.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@CrossOrigin
+@Slf4j
 @RestController
 public class ProductController {
     @Autowired
-    ProductRepository productRepository;
+    ProductService productService;
 
     @PostMapping("/addProduct")
-    public ResponseEntity addProduct(@RequestBody Product product){
-        ProductPo  productPo= new ProductPo();
-        productPo.setName(product.getName());
-        productPo.setPrice(product.getPrice());
-        productPo.setUnit(product.getUnit());
-        productPo.setImageUrl(product.getImageUrl());
-        return ResponseEntity.created((null)).build();
+    public void addProduct(@RequestBody Product product){
+        productService.addProduct(product);
+    }
+
+    @GetMapping("/product")
+    public List<Product> showProduct(){
+        List<Product> products= new ArrayList<Product>();
+        products = productService.showProduct();
     }
 }

@@ -18,12 +18,5 @@ public class OrderFormController {
 
     @PostMapping("/add")
     public ResponseEntity addOrderForm(@RequestBody OrderForm orderForm){
-        OrderFormPo orderFormPo = new OrderFormPo();
-        orderFormPo.setName(orderForm.getName());
-        orderFormPo.setPrice(orderForm.getPrice());
-        orderFormPo.setNum(orderForm.getNum());
-        orderFormPo.setUnit(orderForm.getUnit());
-        orderFormRepository.save(orderFormPo);
-        return ResponseEntity.created((null)).build();
     }
 }
